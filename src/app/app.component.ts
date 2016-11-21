@@ -1,21 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { IExcercise } from './model/excercise';
-import {ExcerciseService} from "./services/excercise.service";
-import {Observable} from "rxjs";
+import {Component, OnInit, ViewContainerRef, ViewChild, AfterViewInit} from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
 
-  excercises$: Observable;
+  private viewContainerRef: ViewContainerRef;
 
-  constructor (public excerciseService: ExcerciseService) {}
-
-  ngOnInit(): void {
-   this.excercises$ = this.excerciseService.getExcercises();
+  public constructor(viewContainerRef:ViewContainerRef) {
+    // You need this small hack in order to catch application root view container ref
+    this.viewContainerRef = viewContainerRef;
   }
 
 }
