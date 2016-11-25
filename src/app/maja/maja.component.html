@@ -4,12 +4,12 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" (click)="childModal.hide()" aria-label="Close">
+        <button type="button" class="close" (click)="stopVideo()" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-         <video autoplay  (ended)="videoEnded()">
+         <video autoplay  (ended)="stopVideo()" *ngIf="showVideo">
           <source src="../assets/maja/intro.mp4" type="video/mp4">
         </video>
       </div>
@@ -17,3 +17,4 @@
   </div>
 </div>
 
+<app-sort-level [list]="list"></app-sort-level>
