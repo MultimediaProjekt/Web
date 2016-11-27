@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 
 @Component({
   selector: 'app-level-dot',
@@ -6,6 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./level-dot.component.scss']
 })
 export class LevelDotComponent implements OnInit {
+
+  @Input() positionX: number;
+  @Input() positionY: number;
+  @Input() active: boolean;
 
   constructor() { }
 

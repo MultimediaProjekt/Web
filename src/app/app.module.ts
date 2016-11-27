@@ -6,11 +6,13 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { APP_ROUTING} from "./app.routing";
 import { DesignPickerComponent } from './design-picker/design-picker.component';
+import { MapComponent } from './map/map.component';
+import { FirstLevelComponent } from './first-level/first-level.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DesignPickerComponent
+    DesignPickerComponent,
   ],
   imports: [
     BrowserModule,

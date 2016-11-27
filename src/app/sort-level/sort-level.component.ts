@@ -1,4 +1,4 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit, Input, EventEmitter, Output} from '@angular/core';
 import {DragulaService} from "ng2-dragula/components/dragula.provider";
 
 @Component({
@@ -9,6 +9,7 @@ import {DragulaService} from "ng2-dragula/components/dragula.provider";
 export class SortLevelComponent implements OnInit {
 
   @Input() list: number[];
+  @Output() sorted = new EventEmitter();
 
   constructor(private dragulaService: DragulaService) {
     dragulaService.setOptions('bag-one', {
@@ -18,7 +19,9 @@ export class SortLevelComponent implements OnInit {
 
   ngOnInit() {
     this.dragulaService.out.subscribe((value) => {
-      console.log(value, this.isSorted());
+      if (this.isSorted()){
+        this.sorted.emit(true);
+      }
     });
   }
 
