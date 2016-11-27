@@ -7,17 +7,23 @@ import { ModalModule } from 'ng2-bootstrap/ng2-bootstrap';
 import {BrowserModule} from "@angular/platform-browser";
 import {DragulaModule} from "ng2-dragula/ng2-dragula";
 import {SortLevelComponent} from "../sort-level/sort-level.component";
+import {MapComponent} from "../map/map.component";
+import {LevelDotComponent} from "../level-dot/level-dot.component";
+import {FirstLevelComponent} from "../first-level/first-level.component";
 
 @NgModule({
   imports: [
     CommonModule,
     ModalModule,
     MAJA_ROUTING,
-    DragulaModule
+    DragulaModule,
   ],
   declarations: [
     MajaComponent,
-    SortLevelComponent
+    SortLevelComponent,
+    MapComponent,
+    LevelDotComponent,
+    FirstLevelComponent
   ]
 })
 export class MajaModule { }
