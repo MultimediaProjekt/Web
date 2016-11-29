@@ -3,7 +3,7 @@ import {LevelStatus} from "./level-status.enum";
 import {Observable} from "rxjs";
 
 export interface Level {
-  route: string[];
+  route: Array<string|number>;
   status: LevelStatus;
   title: string;
 }
@@ -12,11 +12,11 @@ export interface Level {
 export class LevelService {
 
   private _levels: Level[] = [{
-    route: [`./firstLevel`],
+    route: ['./firstLevel', 0],
     status: LevelStatus.ACTIVE,
     title: 'erstes Level'
   }, {
-    route: [`./firstLevel`],
+    route: ['./firstLevel', 1],
     status: LevelStatus.PENDING,
     title: 'erstes Level'
   }];
@@ -26,6 +26,10 @@ export class LevelService {
 
   get levels(): Observable<Level[]> {
     return Observable.of(this._levels);
+  }
+
+  public getLevels(): Level[] {
+    return this._levels;
   }
 
   public finishLevel(index: number): void {

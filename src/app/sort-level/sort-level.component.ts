@@ -9,15 +9,14 @@ import {DragulaService} from "ng2-dragula/components/dragula.provider";
 export class SortLevelComponent implements OnInit {
 
   @Input() list: number[];
+  private sortedList: number[];
   @Output() sorted = new EventEmitter();
 
   constructor(private dragulaService: DragulaService) {
-    dragulaService.setOptions('bag-one', {
-      removeOnSpill: false
-    });
   }
 
   ngOnInit() {
+    this.sortedList = this.list.slice().sort((n1,n2) => n1 - n2);
     this.dragulaService.out.subscribe((value) => {
       if (this.isSorted()){
         this.sorted.emit(true);
@@ -26,11 +25,8 @@ export class SortLevelComponent implements OnInit {
   }
 
   private isSorted(): boolean {
-    if (this.list[0] !== 0) {
-      return false;
-    }
-    for (let i = 1, length = this.list.length; i < length; i++) {
-      if (this.list[i] !== i) {
+    for (let i = 0, length = this.list.length; i < length; i++) {
+      if (this.list[i] !== this.sortedList[i]) {
         return false;
       }
     }

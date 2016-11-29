@@ -8,7 +8,7 @@ const MAJA_ROUTES: Routes = [
     component: MajaComponent
   },
   {
-    path: 'firstLevel',
+    path: 'firstLevel/:index',
     component: FirstLevelComponent
   }
 ];

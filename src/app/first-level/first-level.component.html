@@ -10,7 +10,7 @@
       </div>
       <div class="modal-body">
         <video autoplay  (ended)="stopVideo()" *ngIf="showVideo">
-          <source src="../assets/maja/level_1.mp4" type="video/mp4">
+          <source [attr.src]="src" type="video/mp4">
         </video>
       </div>
     </div>
