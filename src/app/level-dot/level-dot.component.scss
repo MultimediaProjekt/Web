@@ -7,4 +7,7 @@ div{
   &.active{
     background-color: red;
   }
+  &.finished{
+    background-color: green;
+  }
 }

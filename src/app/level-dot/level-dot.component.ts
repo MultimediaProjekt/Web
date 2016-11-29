@@ -10,6 +10,7 @@ export class LevelDotComponent implements OnInit {
   @Input() positionX: number;
   @Input() positionY: number;
   @Input() active: boolean;
+  @Input() finished: boolean;
 
   constructor() { }
 

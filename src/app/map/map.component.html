@@ -1,2 +1,10 @@
 <img [src]="src">
-<app-level-dot [routerLink]="['firstLevel']" [positionX]="300" [positionY]="400" [active]="true" title="erstes Level"></app-level-dot>
+<div *ngFor="let level of levels$ | async; let i = index">
+  <app-level-dot
+    [routerLink]="level.route"
+    [positionX]="i * 100 + 100"
+    [positionY]="i * 150 + 150"
+    [active]="level.status === levelStatus.ACTIVE"
+    [finished]="level.status === levelStatus.FINISHED"
+    [attr.title]="level.title"></app-level-dot>
+</div>
