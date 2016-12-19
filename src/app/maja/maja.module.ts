@@ -11,6 +11,8 @@ import {MapComponent} from "../map/map.component";
 import {LevelDotComponent} from "../level-dot/level-dot.component";
 import {FirstLevelComponent} from "../first-level/first-level.component";
 import {LevelService} from "../level.service";
+import {HeaderComponent} from "../header/header.component";
+import {PointService} from "../point.service";
 
 @NgModule({
   imports: [
@@ -24,10 +26,12 @@ import {LevelService} from "../level.service";
     SortLevelComponent,
     MapComponent,
     LevelDotComponent,
-    FirstLevelComponent
+    FirstLevelComponent,
+    HeaderComponent
   ],
   providers: [
-    {provide: LevelService, useClass: LevelService}
+    {provide: LevelService, useClass: LevelService},
+    {provide: PointService, useClass: PointService}
   ]
 })
 export class MajaModule { }

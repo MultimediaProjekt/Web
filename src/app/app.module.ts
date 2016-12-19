@@ -6,6 +6,9 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { APP_ROUTING} from "./app.routing";
 import { DesignPickerComponent } from './design-picker/design-picker.component';
+import {DesignService} from "./design-picker/design.service";
+import { ReadDirective } from './read.directive';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,9 @@ import { DesignPickerComponent } from './design-picker/design-picker.component';
     HttpModule,
     APP_ROUTING,
   ],
-  providers: [],
+  providers: [
+    {provide: DesignService, useClass: DesignService}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

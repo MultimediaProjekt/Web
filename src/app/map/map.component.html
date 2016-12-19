@@ -1,10 +1,31 @@
+<app-header></app-header>
 <img [src]="src">
 <div *ngFor="let level of levels$ | async; let i = index">
   <app-level-dot
-    [routerLink]="level.route"
-    [positionX]="i * 100 + 100"
-    [positionY]="i * 150 + 150"
+    [positionX]="i * 50 + 50"
+    [positionY]="i * 75 + 75"
     [active]="level.status === levelStatus.ACTIVE"
     [finished]="level.status === levelStatus.FINISHED"
-    [attr.title]="level.title"></app-level-dot>
+    [attr.title]="level.title"
+    (click)="navigateOrShowVideo(level)"
+    ></app-level-dot>
+</div>
+
+<!-- Large modal -->
+<div bsModal #childModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" [config]="{backdrop: 'static'}"
+     aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" (click)="stopVideo()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" *ngIf="showVideo">
+        <video autoplay  (ended)="stopVideo()">
+          <source [attr.src]="currentLevel.video" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
 </div>

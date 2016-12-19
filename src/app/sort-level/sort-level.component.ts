@@ -1,5 +1,6 @@
 import {Component, OnInit, Input, EventEmitter, Output} from '@angular/core';
 import {DragulaService} from "ng2-dragula/components/dragula.provider";
+import {SortExercise} from "../model/sortExercise";
 
 @Component({
   selector: 'app-sort-level',
@@ -8,30 +9,21 @@ import {DragulaService} from "ng2-dragula/components/dragula.provider";
 })
 export class SortLevelComponent implements OnInit {
 
-  @Input() list: number[];
-  private sortedList: number[];
+  @Input() exercise: SortExercise;
+  private list: number[];
   @Output() sorted = new EventEmitter();
 
   constructor(private dragulaService: DragulaService) {
   }
 
   ngOnInit() {
-    this.sortedList = this.list.slice().sort((n1,n2) => n1 - n2);
+    this.list = this.exercise.getList();
     this.dragulaService.out.subscribe((value) => {
-      if (this.isSorted()){
+      console.log("SORT", this.exercise.isFulFilled(), this.exercise);
+      if (this.exercise.isFulFilled()){
         this.sorted.emit(true);
       }
     });
   }
-
-  private isSorted(): boolean {
-    for (let i = 0, length = this.list.length; i < length; i++) {
-      if (this.list[i] !== this.sortedList[i]) {
-        return false;
-      }
-    }
-    return true;
-  }
-
 
 }
