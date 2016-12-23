@@ -2,8 +2,7 @@
 <img [src]="src">
 <div *ngFor="let level of levels$ | async; let i = index">
   <app-level-dot
-    [positionX]="i * 50 + 50"
-    [positionY]="i * 75 + 75"
+    [config]="getConfig(i)"
     [active]="level.status === levelStatus.ACTIVE"
     [finished]="level.status === levelStatus.FINISHED"
     [attr.title]="level.title"

@@ -4,6 +4,7 @@ import {Observable} from "rxjs";
 import {LevelStatus} from "../level-status.enum";
 import {ActivatedRoute, Router, Route} from "@angular/router";
 import {ModalDirective} from "ng2-bootstrap";
+import {LevelConfig} from "../level-dot/level-dot.component";
 
 @Component({
   selector: 'app-map',
@@ -52,6 +53,27 @@ export class MapComponent implements OnInit {
         this.router.navigate(level.route, {relativeTo: this.route});
       }
     }
+  }
+
+  private getConfig(index: number): LevelConfig {
+
+    if(index <5){
+      return {
+        positionX: index * 150 + 150,
+        positionY: 75,
+      }
+    }else if (index === 5){
+      return {
+        positionX: index * 150 + 150,
+        positionY: 150,
+      }
+    }else if (index > 5) {
+      return {
+        positionX: 750 - (index%5) * 150,
+        positionY: 225,
+      }
+    }
+
   }
 
 }

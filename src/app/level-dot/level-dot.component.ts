@@ -1,5 +1,10 @@
 import {Component, OnInit, Input} from '@angular/core';
 
+export interface LevelConfig{
+  positionX: number;
+  positionY: number;
+}
+
 @Component({
   selector: 'app-level-dot',
   templateUrl: './level-dot.component.html',
@@ -7,8 +12,7 @@ import {Component, OnInit, Input} from '@angular/core';
 })
 export class LevelDotComponent implements OnInit {
 
-  @Input() positionX: number;
-  @Input() positionY: number;
+  @Input() config: LevelConfig;
   @Input() active: boolean;
   @Input() finished: boolean;
 
