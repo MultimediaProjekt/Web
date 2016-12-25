@@ -19,6 +19,7 @@ export class MajaComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
+    this.levelService.setContext('maja');
     if(this.levelService.getLevels()[0].status === LevelStatus.ACTIVE){
       this.showVideo = true;
     }

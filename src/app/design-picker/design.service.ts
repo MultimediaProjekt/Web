@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Observable} from "rxjs";
+import {LevelService} from "../level.service";
 
 export enum DesignStatus {
   UNLOCKED,
@@ -12,6 +13,7 @@ export class Design {
   img: string;
   alt: string;
   status: DesignStatus;
+  context: string;
   price: number;
 }
 
@@ -22,17 +24,19 @@ export class DesignService {
     route: ['/maja'],
     img: require('../../assets/maja_intro.jpg'),
     alt: 'Biene Maja Design',
+    context: 'maja',
     status: DesignStatus.UNLOCKED,
     price: 0
   }, {
     route: ['/dschungel'],
     img: require('../../assets/dschungelbuch_intro.jpg'),
     alt: 'Dschungelbuch Design',
+    context: 'dschungel',
     status: DesignStatus.LOCKED,
     price: 0
   }];
 
-  constructor() {
+  constructor(private levelService: LevelService) {
   }
 
   get designs(): Observable<Design[]> {
@@ -41,6 +45,13 @@ export class DesignService {
 
   public getDesigns(): Design[] {
     return this._designs;
+  }
+
+  public getContext():string {
+    let currentDesign = this._designs.find((_design: Design) => {
+      return _design.status === DesignStatus.CURRENT;
+    });
+    return currentDesign.context;
   }
 
   public lockDesign(design: Design): void {
@@ -58,6 +69,7 @@ export class DesignService {
   public setDesignToCurrent(design: Design): void {
     let found_design = this.findDesign(design);
     found_design.status = DesignStatus.CURRENT;
+    this.levelService.setContext(found_design.context);
   }
 
   public lockOtherDesigns(design: Design){

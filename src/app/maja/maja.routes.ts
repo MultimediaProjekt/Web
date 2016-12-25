@@ -2,6 +2,8 @@ import {Routes, RouterModule} from "@angular/router";
 import {MajaComponent} from "./maja.component";
 import {ModuleWithProviders} from "@angular/core";
 import {FirstLevelComponent} from "../first-level/first-level.component";
+import {AdditionLevelComponent} from "../addition-level/addition-level.component";
+
 const MAJA_ROUTES: Routes = [
   {
     path: '',
@@ -10,6 +12,10 @@ const MAJA_ROUTES: Routes = [
   {
     path: 'firstLevel/:index',
     component: FirstLevelComponent
+  },
+  {
+    path: 'additionLevel/:index',
+    component: AdditionLevelComponent
   }
 ];
 

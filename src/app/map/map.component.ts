@@ -35,21 +35,21 @@ export class MapComponent implements OnInit {
     this.childModal.show();
   }
 
-  private stopVideo(){
+  private stopVideo() {
     console.log("STOP", this.currentLevel);
-    if(this.currentLevel.status === this.levelStatus.ACTIVE){
+    if (this.currentLevel.status === this.levelStatus.ACTIVE) {
       this.levelService.finishLevel(this.currentLevel);
     }
     this.childModal.hide();
     this.showVideo = false;
   }
 
-  private navigateOrShowVideo(level: Level){
-    if(level.video) {
+  private navigateOrShowVideo(level: Level) {
+    if (level.video) {
       this.currentLevel = level;
       this.showModal();
     } else {
-      if(level.status === this.levelStatus.ACTIVE){
+      if (level.status === this.levelStatus.ACTIVE) {
         this.router.navigate(level.route, {relativeTo: this.route});
       }
     }
@@ -57,23 +57,32 @@ export class MapComponent implements OnInit {
 
   private getConfig(index: number): LevelConfig {
 
-    if(index <5){
+    if (index < 4) {
       return {
         positionX: index * 150 + 150,
         positionY: 75,
       }
-    }else if (index === 5){
+    } else if (index === 4) {
       return {
         positionX: index * 150 + 150,
         positionY: 150,
       }
-    }else if (index > 5) {
+    } else if (index > 4 && index < 8) {
       return {
-        positionX: 750 - (index%5) * 150,
+        positionX: 600 - (index % 5) * 150,
         positionY: 225,
       }
+    } else if (index === 8) {
+      return {
+        positionX: 150,
+        positionY: 300,
+      }
+    }else if (index > 8){
+      return {
+        positionX: (index-8) * 150 + 150,
+        positionY: 375,
+      }
     }
-
   }
 
 }

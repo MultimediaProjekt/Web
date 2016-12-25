@@ -9,6 +9,8 @@ import { DesignPickerComponent } from './design-picker/design-picker.component';
 import {DesignService} from "./design-picker/design.service";
 import { ReadDirective } from './read.directive';
 import { HeaderComponent } from './header/header.component';
+import {LevelService} from "./level.service";
+import { AdditionLevelComponent } from './addition-level/addition-level.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { HeaderComponent } from './header/header.component';
     APP_ROUTING,
   ],
   providers: [
-    {provide: DesignService, useClass: DesignService}
+    {provide: DesignService, useClass: DesignService},
+    {provide: LevelService, useClass: LevelService}
   ],
   bootstrap: [AppComponent]
 })
