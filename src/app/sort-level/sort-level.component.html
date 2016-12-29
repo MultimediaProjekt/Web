@@ -1,3 +1,5 @@
 <div [dragula]='"bag-one"' [dragulaModel]='list'>
-  <span *ngFor="let item of list">{{item}}</span>
+  <div *ngFor="let item of list" style="float:left; margin-right:10px; margin-top: 470px;">
+    <img [src]="assetsService.getNumberAssets(item)">
+  </div>
 </div>

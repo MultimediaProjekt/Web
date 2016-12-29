@@ -6,8 +6,14 @@ div{
   background-color: grey;
   &.active{
     background-color: red;
+    &:hover{
+      background-color: darkred;
+    }
   }
   &.finished{
     background-color: green;
+    &:hover{
+      background-color: darkgreen;
+    }
   }
 }

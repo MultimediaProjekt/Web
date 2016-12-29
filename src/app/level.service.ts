@@ -5,6 +5,7 @@ import {SortExercise} from "./model/sortExercise";
 import {IExercise} from "./model/exercise";
 import {DesignService} from "./design-picker/design.service";
 import {AdditionExercise} from "./model/addtitionExercise";
+import {SubtractionExercise} from "./model/subtractionExercise";
 
 export interface Level {
   route: Array<string|number>;
@@ -22,7 +23,7 @@ export class LevelService {
   private _levels: Level[] = [
     {
       route: [],
-      status: LevelStatus.FINISHED,
+      status: LevelStatus.ACTIVE,
       title: null,
       exercise: null,
       video: `../assets/${this.context}/level_1.mp4`,
@@ -71,19 +72,40 @@ export class LevelService {
       video: `../assets/${this.context}/level_3.mp4`,
     }, {
       route: ['./additionLevel', 9],
-      status: LevelStatus.ACTIVE,
+      status: LevelStatus.PENDING,
       title: 'siebtes Level',
       exercise: new AdditionExercise(10, 5)
     }, {
       route: ['./additionLevel', 10],
-      status: LevelStatus.ACTIVE,
+      status: LevelStatus.PENDING,
       title: 'achtes Level',
       exercise: new AdditionExercise(3, 8)
     }, {
       route: ['./additionLevel', 11],
-      status: LevelStatus.ACTIVE,
+      status: LevelStatus.PENDING,
       title: 'neuntes Level',
       exercise: new AdditionExercise(14, 3)
+    }, {
+      route: [],
+      status: LevelStatus.PENDING,
+      title: null,
+      exercise: null,
+      video: `../assets/${this.context}/level_4.mp4`,
+    }, {
+      route: ['./subtractionLevel', 13],
+      status: LevelStatus.PENDING,
+      title: 'zehntes Level',
+      exercise: new SubtractionExercise(13, 4)
+    }, {
+      route: ['./subtractionLevel', 14],
+      status: LevelStatus.PENDING,
+      title: 'elftes Level',
+      exercise: new SubtractionExercise(6, 3)
+    }, {
+      route: ['./subtractionLevel', 15],
+      status: LevelStatus.PENDING,
+      title: 'zwölftes Level',
+      exercise: new SubtractionExercise(19, 6)
     }
   ];
 

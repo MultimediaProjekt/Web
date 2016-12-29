@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {DesignService, Design} from "./design.service";
+import {DesignService, Design, DesignStatus} from "./design.service";
 import {Observable} from "rxjs";
 import {Router} from "@angular/router";
 
@@ -10,9 +10,11 @@ import {Router} from "@angular/router";
 })
 export class DesignPickerComponent implements OnInit {
 
-  private designs: Observable<Design[]>
+  private designs: Observable<Design[]>;
+  private designStatus = DesignStatus;
   private designService: DesignService;
   private router: Router;
+  private show = false;
 
   constructor(designService: DesignService, router: Router) {
     this.designService = designService;

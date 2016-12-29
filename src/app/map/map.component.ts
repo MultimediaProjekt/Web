@@ -59,28 +59,38 @@ export class MapComponent implements OnInit {
 
     if (index < 4) {
       return {
-        positionX: index * 150 + 150,
-        positionY: 75,
+        positionX: index * 300 + 300,
+        positionY: 150 ,
       }
     } else if (index === 4) {
       return {
-        positionX: index * 150 + 150,
-        positionY: 150,
+        positionX: 1500,
+        positionY: 250,
       }
     } else if (index > 4 && index < 8) {
       return {
-        positionX: 600 - (index % 5) * 150,
-        positionY: 225,
+        positionX: 1200 - (index % 5) * 300,
+        positionY: 350,
       }
     } else if (index === 8) {
       return {
-        positionX: 150,
-        positionY: 300,
+        positionX: 300,
+        positionY: 450,
       }
-    }else if (index > 8){
+    }else if (index > 8 && index < 12){
       return {
-        positionX: (index-8) * 150 + 150,
-        positionY: 375,
+        positionX: (index-8) * 300 + 300,
+        positionY: 550,
+      }
+    }else if(index === 12){
+      return {
+        positionX: 1500,
+        positionY: 650,
+      }
+    }else if (index > 12) {
+      return {
+        positionX: 1200 - (index % 13) * 300,
+        positionY: 750,
       }
     }
   }

@@ -7,15 +7,14 @@ import { AppComponent } from './app.component';
 import { APP_ROUTING} from "./app.routing";
 import { DesignPickerComponent } from './design-picker/design-picker.component';
 import {DesignService} from "./design-picker/design.service";
-import { ReadDirective } from './read.directive';
-import { HeaderComponent } from './header/header.component';
 import {LevelService} from "./level.service";
-import { AdditionLevelComponent } from './addition-level/addition-level.component';
+import {HeaderComponent} from "./header/header.component";
+import {PointService} from "./point.service";
 
 @NgModule({
   declarations: [
     AppComponent,
-    DesignPickerComponent,
+    DesignPickerComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +24,7 @@ import { AdditionLevelComponent } from './addition-level/addition-level.componen
   ],
   providers: [
     {provide: DesignService, useClass: DesignService},
-    {provide: LevelService, useClass: LevelService}
+    {provide: LevelService, useClass: LevelService},
   ],
   bootstrap: [AppComponent]
 })

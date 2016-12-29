@@ -1,5 +1,15 @@
-<app-header></app-header>
 <img [src]="src">
+<div>
+  <app-level-dot
+    [config]="{positionX: 150, positionY: 100}"
+    [active]="false"
+    [finished]="true"
+    [attr.title]="'Zuhause'"
+    [routerLink]="['/']"
+  >
+    <i class="fa fa-home" aria-hidden="true"></i>
+  </app-level-dot>
+</div>
 <div *ngFor="let level of levels$ | async; let i = index">
   <app-level-dot
     [config]="getConfig(i)"
@@ -7,7 +17,9 @@
     [finished]="level.status === levelStatus.FINISHED"
     [attr.title]="level.title"
     (click)="navigateOrShowVideo(level)"
-    ></app-level-dot>
+    >
+    <i *ngIf="level.video" class="fa fa-film" aria-hidden="true"></i>
+  </app-level-dot>
 </div>
 
 <!-- Large modal -->

@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import {Route, Router, ActivatedRoute} from "@angular/router";
-import {AdditionExercise} from "../model/addtitionExercise";
+import {SubtractionExercise} from "../model/subtractionExercise";
+import {FormGroup, Validators, FormControl} from "@angular/forms";
+import {Router, ActivatedRoute} from "@angular/router";
 import {LevelService} from "../level.service";
-import {FormGroup, FormControl, Validators} from "@angular/forms";
 
 @Component({
-  selector: 'app-addition-level',
-  templateUrl: './addition-level.component.html',
-  styleUrls: ['./addition-level.component.scss']
+  selector: 'app-subtraction-level',
+  templateUrl: './subtraction-level.component.html',
+  styleUrls: ['./subtraction-level.component.scss']
 })
-export class AdditionLevelComponent implements OnInit {
+export class SubtractionLevelComponent implements OnInit {
 
   private index;
-  private exercise: AdditionExercise;
+  private exercise: SubtractionExercise;
   private formGroup: FormGroup;
 
   constructor(public router: Router,
@@ -21,13 +21,13 @@ export class AdditionLevelComponent implements OnInit {
 
   ngOnInit() {
     this.formGroup = new FormGroup({
-      firstNumber: new FormControl(0, Validators.required),
-      secondNumber: new FormControl(0, Validators.required),
-      result: new FormControl('0', Validators.required)
+      firstNumber: new FormControl([0, Validators.required]),
+      secondNumber: new FormControl([0, Validators.required]),
+      result: new FormControl([0, Validators.required])
     });
     this.route.params.subscribe(params => {
       this.index = +params['index'];
-      this.exercise = <AdditionExercise>this.levelService.getLevels()[this.index].exercise;
+      this.exercise = <SubtractionExercise>this.levelService.getLevels()[this.index].exercise;
       this.formGroup.controls['firstNumber'].setValue(this.exercise.firstNumber);
       this.formGroup.controls['secondNumber'].setValue(this.exercise.secondNumber);
     });
@@ -40,7 +40,7 @@ export class AdditionLevelComponent implements OnInit {
           this.levelService.finishLevelByExercise(this.exercise);
           this.router.navigate(['/maja']);
         }
-    });
+      });
   }
 
 }

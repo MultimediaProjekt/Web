@@ -26,14 +26,14 @@ export class DesignService {
     alt: 'Biene Maja Design',
     context: 'maja',
     status: DesignStatus.UNLOCKED,
-    price: 0
+    price: 300
   }, {
     route: ['/dschungel'],
     img: require('../../assets/dschungelbuch_intro.jpg'),
     alt: 'Dschungelbuch Design',
     context: 'dschungel',
-    status: DesignStatus.LOCKED,
-    price: 0
+    status: DesignStatus.UNLOCKED,
+    price: 300
   }];
 
   constructor(private levelService: LevelService) {

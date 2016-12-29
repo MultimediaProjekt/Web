@@ -15,6 +15,8 @@ import {HeaderComponent} from "../header/header.component";
 import {PointService} from "../point.service";
 import {AdditionLevelComponent} from "../addition-level/addition-level.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {SubtractionLevelComponent} from "../subtraction-level/subtraction-level.component";
+import {AssetsService} from "../assets.service";
 
 @NgModule({
   imports: [
@@ -32,11 +34,13 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     LevelDotComponent,
     FirstLevelComponent,
     AdditionLevelComponent,
+    SubtractionLevelComponent,
     HeaderComponent
   ],
   providers: [
     {provide: LevelService, useClass: LevelService},
-    {provide: PointService, useClass: PointService}
+    {provide: PointService, useClass: PointService},
+    {provide: AssetsService, useClass: AssetsService}
   ]
 })
 export class MajaModule { }

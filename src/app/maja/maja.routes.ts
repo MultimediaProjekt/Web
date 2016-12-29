@@ -3,6 +3,7 @@ import {MajaComponent} from "./maja.component";
 import {ModuleWithProviders} from "@angular/core";
 import {FirstLevelComponent} from "../first-level/first-level.component";
 import {AdditionLevelComponent} from "../addition-level/addition-level.component";
+import {SubtractionLevelComponent} from "../subtraction-level/subtraction-level.component";
 
 const MAJA_ROUTES: Routes = [
   {
@@ -16,6 +17,10 @@ const MAJA_ROUTES: Routes = [
   {
     path: 'additionLevel/:index',
     component: AdditionLevelComponent
+  },
+  {
+    path: 'subtractionLevel/:index',
+    component: SubtractionLevelComponent
   }
 ];
 

@@ -6,6 +6,7 @@ import {LevelStatus} from "../level-status.enum";
 import {DragulaService} from "ng2-dragula/components/dragula.provider";
 import {PointService} from "../point.service";
 import {SortExercise} from "../model/sortExercise";
+import {AssetsService} from "../assets.service";
 
 @Component({
   selector: 'app-first-level',
@@ -22,7 +23,8 @@ export class FirstLevelComponent implements OnInit {
               public levelService: LevelService,
               private route: ActivatedRoute,
               public dragulaService: DragulaService,
-              private pointService: PointService) {
+              private pointService: PointService,
+              private assetsService: AssetsService) {
   }
 
   ngOnInit() {

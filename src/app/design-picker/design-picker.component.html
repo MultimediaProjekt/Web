@@ -1,5 +1,9 @@
 <section>
   <div class="col-xs-6" *ngFor="let design of designs | async">
     <img [src]="design.img" [alt]="design.alt" (click)="pickDesign(design)">
+    <div *ngIf="design.status === designStatus.LOCKED" class="background" (mouseenter)="show = true" (mouseleave)="show = false">
+      <i class="fa fa-lock" aria-hidden="true" *ngIf="!show"></i>
+      <i class="fa fa-usd" aria-hidden="true" *ngIf="show">{{design.price}}</i>
+    </div>
   </div>
 </section>
