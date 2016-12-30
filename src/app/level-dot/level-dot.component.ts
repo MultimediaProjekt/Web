@@ -1,9 +1,5 @@
 import {Component, OnInit, Input} from '@angular/core';
-
-export interface LevelConfig{
-  positionX: number;
-  positionY: number;
-}
+import {AssetsService, LevelType} from "../assets.service";
 
 @Component({
   selector: 'app-level-dot',
@@ -12,13 +8,25 @@ export interface LevelConfig{
 })
 export class LevelDotComponent implements OnInit {
 
+  @Input() type: LevelType;
   @Input() config: LevelConfig;
   @Input() active: boolean;
   @Input() finished: boolean;
+  @Input() index = 0;
 
-  constructor() { }
+  private hover = false;
+
+  constructor(
+    private assetsService: AssetsService
+  ) { }
 
   ngOnInit() {
   }
 
 }
+
+export interface LevelConfig{
+  positionX: number;
+  positionY: number;
+}
+

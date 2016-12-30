@@ -6,8 +6,8 @@
     [finished]="true"
     [attr.title]="'Zuhause'"
     [routerLink]="['/']"
+    [type]="levelType.HOME"
   >
-    <i class="fa fa-home" aria-hidden="true"></i>
   </app-level-dot>
 </div>
 <div *ngFor="let level of levels$ | async; let i = index">
@@ -16,6 +16,8 @@
     [active]="level.status === levelStatus.ACTIVE"
     [finished]="level.status === levelStatus.FINISHED"
     [attr.title]="level.title"
+    [type]="level.video ? levelType.VIDEO : levelType.EXERCISE"
+    [index]="i"
     (click)="navigateOrShowVideo(level)"
     >
     <i *ngIf="level.video" class="fa fa-film" aria-hidden="true"></i>

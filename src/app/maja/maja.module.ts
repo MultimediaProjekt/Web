@@ -29,9 +29,9 @@ import {AssetsService} from "../assets.service";
   ],
   declarations: [
     MajaComponent,
+    LevelDotComponent,
     SortLevelComponent,
     MapComponent,
-    LevelDotComponent,
     FirstLevelComponent,
     AdditionLevelComponent,
     SubtractionLevelComponent,

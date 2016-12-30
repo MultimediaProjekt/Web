@@ -1,5 +1,8 @@
-<div [dragula]='"bag-one"' [dragulaModel]='list'>
-  <div *ngFor="let item of list" style="float:left; margin-right:10px; margin-top: 470px;">
-    <img [src]="assetsService.getNumberAssets(item)">
+<section style="margin-top:400px">
+  <h1 class="text-center">Bitte ordne die Zahlen der Reihe nach.</h1>
+  <div [dragula]='"bag-one"' [dragulaModel]='list'>
+    <div *ngFor="let item of list" style="float:left; margin-right:10px; margin-top:30px">
+      <img [src]="assetsService.getNumberAssets(item)">
+    </div>
   </div>
-</div>
+</section>

@@ -1,3 +1,3 @@
-<div [style.top]="config.positionY+'px'" [style.left]="config.positionX+'px'" [class.active]="active" [class.finished]="finished">
-  <ng-content></ng-content>
+<div [style.top]="config.positionY+'px'" [style.left]="config.positionX+'px'" (mouseenter)="hover = true" (mouseleave)="hover = false">
+  <img [src]="assetsService.getLevelDot(type, hover, index)">
 </div>

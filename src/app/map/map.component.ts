@@ -5,6 +5,7 @@ import {LevelStatus} from "../level-status.enum";
 import {ActivatedRoute, Router, Route} from "@angular/router";
 import {ModalDirective} from "ng2-bootstrap";
 import {LevelConfig} from "../level-dot/level-dot.component";
+import {LevelType} from "../assets.service";
 
 @Component({
   selector: 'app-map',
@@ -21,6 +22,7 @@ export class MapComponent implements OnInit {
   private levels$: Observable<Level[]>;
   private levelStatus = LevelStatus;
   private currentLevel: Level;
+  private levelType = LevelType;
 
   constructor(public levelService: LevelService, private router: Router, private route: ActivatedRoute) {
   }
